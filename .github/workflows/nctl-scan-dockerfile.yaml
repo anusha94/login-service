@@ -35,7 +35,7 @@ jobs:
           download_url="https://github.com/nirmata/go-nctl/releases/download/v4.0.0-alpha.3/nctl_4.0.0-alpha.3_linux_386.zip"
           curl -L -o nctl.zip $download_url
           #curl -L -o nctl.tar.gz $download_url
-          unzip -q nctl.zip
+          gunzip nctl.zip
           #gunzip -q nctl.tar.gz
           #tar -xvzf nctl.tar.gz
           make build linux
