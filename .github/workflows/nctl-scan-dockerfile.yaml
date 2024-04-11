@@ -38,7 +38,7 @@ jobs:
           gunzip -r nctl.zip
           #gunzip -q nctl.tar.gz
           #tar -xvzf nctl.tar.gz
-          make build linux
+          #make build linux
           chmod +x nctl
 
       - name: NCTL Scan - Dockerfile
