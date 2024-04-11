@@ -36,7 +36,7 @@ jobs:
           #curl -L -o nctl.zip $download_url
           curl -L -o nctl.tar.gz $download_url
           #unzip -q nctl.zip
-          tar -xvzf nctl-4.0.0-alpha.3.tar.gz
+          tar -xvzf nctl.tar.gz
           make build linux
           chmod +x nctl
 
