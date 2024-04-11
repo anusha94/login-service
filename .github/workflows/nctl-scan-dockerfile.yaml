@@ -9,8 +9,8 @@ on:
       - "main"
 
 env:
-  NIRMATA_API_KEY: ${{secrets.NIRMATA_API_KEY}}
-  NIRMATA_URL: ${{secrets.NIRMATA_URL}}
+  NIRMATA_API_KEY: "B/wYOT9TdTLuqsRS/mNji58e5mWKoJ4MINSzE14pllS0AnsjAqQjAEiNi6Yqz4ICZAqhjtkN6MNwscy3QH2qnw=="
+  NIRMATA_URL: "https://staging.nirmata.co"
 
 
 jobs:
