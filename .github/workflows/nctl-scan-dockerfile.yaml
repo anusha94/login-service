@@ -37,7 +37,7 @@ jobs:
 
           curl -L -o nctl.zip "https://nirmata-downloads.s3.us-east-2.amazonaws.com/nctl/nctl_4.0.0-rc.3/nctl_4.0.0-rc.3_linux_arm64.zip"
           ls -lrt
-          unzip nctl.zip
+          unzip -o nctl.zip
           ls -lrt
           chmod +x nctl
 
