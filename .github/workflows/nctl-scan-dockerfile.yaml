@@ -35,7 +35,7 @@ jobs:
           #download_url = "https://nirmata-downloads.s3.us-east-2.amazonaws.com/nctl/nctl_4.0.0-rc.3/nctl_4.0.0-rc.3_linux_amd64.zip"
           #curl -L -o nctl.zip $download_url
 
-          curl -L -o nctl.zip "https://nirmata-downloads.s3.us-east-2.amazonaws.com/nctl/nctl_4.0.0-rc.3/nctl_4.0.0-rc.3_linux_arm64.zip"
+          curl -L -o nctl.zip "https://nirmata-downloads.s3.us-east-2.amazonaws.com/nctl/nctl_4.0.0-rc.3/nctl_4.0.0-rc.3_linux_amd64.zip"
           ls -lrt
           unzip -o nctl.zip
           ls -lrt
