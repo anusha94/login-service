@@ -41,7 +41,7 @@ jobs:
           ls -lrt
           chmod +x nctl
 
-      - name: NCTL Scan - Dockerfile
+      - name: NCTL Scan - Repository
         run: ./nctl scan repository --policies ./policy/
   
       - run: echo "🍏 This job's status is ${{ job.status }}."
