@@ -9,7 +9,7 @@ on:
       - "main"
 
 env:
-  NIRMATA_API_KEY: ${{secrets.NIRMATA_API_KEY}}
+  NIRMATA_TOKEN: ${{secrets.NIRMATA_TOKEN}}
   NIRMATA_URL: ${{secrets.NIRMATA_URL}}
 
 
