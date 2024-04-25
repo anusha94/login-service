@@ -31,12 +31,12 @@ jobs:
           set -e
 
           # Determine the download URL based on the release version
-          download_url="https://nirmata-downloads.s3.us-east-2.amazonaws.com/nctl/nctl_3.4.4-beta.1/nctl_3.4.4-beta.1_linux_64-bit.zip"
+          download_url="https://nirmata-downloads.s3.us-east-2.amazonaws.com/nctl/nctl_4.0.0-rc.5/nctl_4.0.0-rc.5_linux_64-bit.zip"
           curl -L -o nctl.zip $download_url
           unzip -q nctl.zip
           chmod +x nctl
 
       - name: NCTL Scan - Dockerfile
-        run: ./nctl scan git-repo --policies ./policy/
+        run: ./nctl scan repository --policies ./policy/
   
       - run: echo "🍏 This job's status is ${{ job.status }}."
