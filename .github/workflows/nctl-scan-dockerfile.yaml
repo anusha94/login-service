@@ -14,7 +14,7 @@ env:
 
 
 jobs:
-  NCTL-Scan-Dockerfile:
+  NCTL-Scan-Repository:
     runs-on: ubuntu-latest
     steps:
       - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
@@ -22,21 +22,10 @@ jobs:
       - name: Check out main repository code
         uses: actions/checkout@v4
 
-      - name: Download and Install nctl
-        shell: bash
-        run: |
-          #!/bin/bash
+      - name: nctl-scan-installer
+        uses: nirmata/action-install-nctl-scan@v0.0.5
 
-          shopt -s expand_aliases
-          set -e
-
-          # Determine the download URL based on the release version
-          download_url="https://nirmata-downloads.s3.us-east-2.amazonaws.com/nctl/nctl_4.0.0-rc.5/nctl_4.0.0-rc.5_linux_amd64.zip"
-          curl -L -o nctl.zip $download_url
-          unzip -o nctl.zip
-          chmod +x nctl
-
-      - name: NCTL Scan - Dockerfile
-        run: ./nctl scan repository --policies ./policy/
+      - name: NCTL Scan Repository
+        run: nctl scan repository --policies ./policy/
   
       - run: echo "🍏 This job's status is ${{ job.status }}."
