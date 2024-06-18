@@ -29,6 +29,6 @@ jobs:
         run: nctl scan repository --help
         
       - name: NCTL Scan Repository
-        run: nctl scan repository --policies ./policy/ --publish-token $NIRMATA_TOKEN
+        run: nctl scan repository --policies ./policy/ --token $NIRMATA_TOKEN
   
       - run: echo "🍏 This job's status is ${{ job.status }}."
