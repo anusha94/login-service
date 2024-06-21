@@ -56,8 +56,8 @@ spec:
           containerPort: 8443
           protocol: "TCP"
         - name: "jmx"
-          containerPort: 9999
-          protocol: "TCP"
+          containerPort: 8080
+          protocol: "HTTP"
         env:
         - name: "nirmata.environments-processor"
           value: "false"
@@ -171,11 +171,10 @@ spec:
             memory: "6Gi"
             cpu: 2
         securityContext:
-          allowPrivilegeEscalation: false
+          allowPrivilegeEscalation: true
           capabilities:
             drop:
               - ALL
-          runAsNonRoot: true
           seccompProfile:
             type: RuntimeDefault
       securityContext:
