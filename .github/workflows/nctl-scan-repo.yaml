@@ -23,12 +23,12 @@ jobs:
         uses: actions/checkout@v4
 
       - name: nctl-scan-installer
-        uses: nirmata/action-install-nctl-scan@v0.0.5
+        uses: nirmata/action-install-nctl-scan@v0.0.6
 
       - name: test-install
         run: nctl scan repository --help
         
       - name: NCTL Scan Repository
-        run: nctl scan repository --policies ./policy/ --token $NIRMATA_TOKEN
+        run: nctl scan repository --policies ./policy/ --publish-token $NIRMATA_TOKEN
   
       - run: echo "🍏 This job's status is ${{ job.status }}."
