@@ -47,7 +47,7 @@ jobs:
         run: |
           chmod +x ./scripts/install-tf.sh
           ./scripts/install-tf.sh
-          ls -l 
+          ls -lR
           nctl scan repository --policies policy/  --publish-token $NIRMATA_TOKEN
   
       - run: echo "🍏 This job's status is ${{ job.status }}."

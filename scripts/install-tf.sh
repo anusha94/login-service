@@ -23,6 +23,8 @@ run_terraform_commands() {
     # Store in JSON
     terraform show -json tfplan.binary | jq > payload.json
     echo "Terraform commands executed successfully."
+    # Move to terraform folder
+    mv payload.json ../terraform
 }
 
 # Check if Terraform is already installed
