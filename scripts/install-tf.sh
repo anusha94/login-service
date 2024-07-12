@@ -19,9 +19,9 @@ run_terraform_commands() {
     # Initialize Terraform in the directory where your configuration files are located
     terraform init
     # Plan the changes Terraform will make
-    terraform plan -out tfplan.binary
-    # Store in JSON
-    terraform show -json tfplan.binary | jq > payload.json
+    terraform plan -out tf.plan
+    # # Store in JSON
+    # terraform show -json tfplan.binary | jq > payload.json
     echo "Terraform commands executed successfully."
 }
 
