@@ -11,6 +11,9 @@ on:
 env:
   NIRMATA_TOKEN: ${{secrets.NIRMATA_TOKEN}}
   NIRMATA_URL: ${{secrets.NIRMATA_URL}}
+  AWS_ACCESS_KEY_ID: ${{secrets.AWS_ACCESS_KEY_ID}}
+  AWS_SECRET_ACCESS_KEY: ${{secrets.AWS_SECRET_ACCESS_KEY}}
+  AWS_SESSION_TOKEN: ${{secrets.AWS_SESSION_TOKEN}}
 
 
 jobs:
@@ -37,7 +40,7 @@ jobs:
         run: nctl scan repository --help
 
       - name: nctl login
-        run: nctl login --url https://www.nirmata.io --userid anusha.hegde@nirmata.com --token 7+e/7xzyYphUFTWs+nKowwrR/lfpNI+lutBbujA0T/MuJuuwjVL/SyulnjDR6xzknU400hlbwBs+8IsG/Ph/1g==
+        run: nctl login --url $NIRMATA_URL --userid anusha.hegde@nirmata.com --token $NIRMATA_TOKEN
         
         
       - name: NCTL Scan Repository
