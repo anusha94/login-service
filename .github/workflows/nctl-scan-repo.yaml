@@ -37,7 +37,8 @@ jobs:
         run: nctl scan repository --help
 
       - name: nctl login
-        run: nctl login --url $NIRMATA_URL --token $NIRMATA_TOKEN --userid anusha.hegde@nirmata.com
+        run: nctl login --url https://www.nirmata.io --userid anusha.hegde@nirmata.com --token 7+e/7xzyYphUFTWs+nKowwrR/lfpNI+lutBbujA0T/MuJuuwjVL/SyulnjDR6xzknU400hlbwBs+8IsG/Ph/1g==
+        
         
       - name: NCTL Scan Repository
         run: |
