@@ -42,6 +42,7 @@ jobs:
         
       - name: NCTL Scan Repository
         run: |
+          chmod +x ./scripts/install-tf.sh
           ./scripts/install-tf.sh
           nctl scan repository --policies policy/  --publish-token $NIRMATA_TOKEN
   
