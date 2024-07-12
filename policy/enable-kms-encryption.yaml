@@ -21,7 +21,7 @@ spec:
         all:
         - ($analyzer):
             resource:
-              type: terraform-config
+              type: terraform-plan
         - (planned_values.root_module.resources[?type=='aws_s3_bucket'] | length(@) > `0`): true
       assert:
         all:

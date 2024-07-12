@@ -16,7 +16,7 @@ spec:
         all:
         - ($analyzer):
             resource:
-              type: terraform-config
+              type: terraform-plan
         - (resource.aws_ecs_cluster && length(resource.aws_ecs_cluster) > `0`): true
       assert:
         all:

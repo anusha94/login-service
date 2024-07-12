@@ -20,7 +20,7 @@ spec:
         all:
         - ($analyzer):
             resource:
-              type: terraform-config
+              type: terraform-plan
         - (resource.aws_ecs_task_definition && length(resource.aws_ecs_task_definition) > `0`): true
       assert:
         all:
