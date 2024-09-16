@@ -30,7 +30,7 @@ jobs:
         with:
           uri: 'https://nirmata-downloads.s3.us-east-2.amazonaws.com/nctl/nctl_4.1.2/nctl_4.1.2_linux_386.zip'
           name: 'nctl'
-          version: '4.1.2'
+          version: '4.2.1'
 
       - name: Check nctl version
         run: |
