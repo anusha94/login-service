@@ -1,53 +1,53 @@
-name: NCTL Scan Pipeline Demo
-run-name: ${{ github.actor }} has triggered Scan Action 🚀
-on:
-  pull_request:
-    branches:
-      - "main"
-  push:
-    branches:
-      - "main"
+# name: NCTL Scan Pipeline Demo
+# run-name: ${{ github.actor }} has triggered Scan Action 🚀
+# on:
+#   pull_request:
+#     branches:
+#       - "main"
+#   push:
+#     branches:
+#       - "main"
 
-env:
-  NIRMATA_TOKEN: ${{ secrets.NIRMATA_TOKEN }}
-  NIRMATA_URL: ${{ secrets.NIRMATA_URL }}
-  AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-  AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-  AWS_SESSION_TOKEN: ${{ secrets.AWS_SESSION_TOKEN }}
+# env:
+#   NIRMATA_TOKEN: ${{ secrets.NIRMATA_TOKEN }}
+#   NIRMATA_URL: ${{ secrets.NIRMATA_URL }}
+#   AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+#   AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+#   AWS_SESSION_TOKEN: ${{ secrets.AWS_SESSION_TOKEN }}
 
 
-jobs:
-  NCTL-Scan-Repository:
-    runs-on: ubuntu-latest
-    steps:
-      - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
+# jobs:
+#   NCTL-Scan-Repository:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
 
-      - name: Check out main repository code
-        uses: actions/checkout@v4
+#       - name: Check out main repository code
+#         uses: actions/checkout@v4
 
-      - name: NCTL-scan-installer - Terraform
-        uses: supplypike/setup-bin@v4
-        with:
-          uri: 'https://nirmata-downloads.s3.us-east-2.amazonaws.com/nctl/nctl_4.2.2-rc.1/nctl_4.2.2-rc.1_linux_386.zip'
-          name: 'nctl'
-          version: '4.2.2-rc.1'
+#       - name: NCTL-scan-installer - Terraform
+#         uses: supplypike/setup-bin@v4
+#         with:
+#           uri: 'https://nirmata-downloads.s3.us-east-2.amazonaws.com/nctl/nctl_4.2.2-rc.1/nctl_4.2.2-rc.1_linux_386.zip'
+#           name: 'nctl'
+#           version: '4.2.2-rc.1'
 
-      - name: Check nctl version
-        run: |
-          nctl version
+#       - name: Check nctl version
+#         run: |
+#           nctl version
 
-      - name: test-install
-        run: nctl scan repository --help
+#       - name: test-install
+#         run: nctl scan repository --help
 
-      - name: nctl login
-        run: nctl login --url $NIRMATA_URL --userid anusha.hegde@nirmata.com --token $NIRMATA_TOKEN
+#       - name: nctl login
+#         run: nctl login --url $NIRMATA_URL --userid anusha.hegde@nirmata.com --token $NIRMATA_TOKEN
         
         
-      - name: NCTL Scan Repository
-        run: |
-          chmod +x ./scripts/install-tf.sh
-          ./scripts/install-tf.sh
-          ls -lR
-          nctl scan repository --policies policy/  --publish-token $NIRMATA_TOKEN
+#       - name: NCTL Scan Repository
+#         run: |
+#           chmod +x ./scripts/install-tf.sh
+#           ./scripts/install-tf.sh
+#           ls -lR
+#           nctl scan repository --policies policy/  --publish-token $NIRMATA_TOKEN
   
-      - run: echo "🍏 This job's status is ${{ job.status }}."
+#       - run: echo "🍏 This job's status is ${{ job.status }}."
