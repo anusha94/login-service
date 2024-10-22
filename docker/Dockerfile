@@ -17,7 +17,7 @@ RUN apk update && \
     unzip -o ${SIGNER_BINARY_FILE} 
 
 RUN apt-get update && \
-     apt-get install -y --allow-unauthenticated yamllint
+    apt-get install -y --allow-unauthenticated yamllint
 
 RUN apk update && \
     apk add --no-cache --allow-untrusted curl
