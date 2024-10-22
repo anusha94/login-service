@@ -1,9 +1,9 @@
 apiVersion: kyverno.io/v1
 kind: ClusterPolicy
 metadata:
-  name: allowed-image-repos
+  name: disallow-image-registries
   annotations:
-    policies.kyverno.io/title: Allowed Image Repositories
+    policies.kyverno.io/title: Disallow Image Registries
     policies.kyverno.io/category: Workload Best Practices
     policies.kyverno.io/severity: medium
     kyverno.io/kyverno-version: 1.9.0
@@ -17,22 +17,21 @@ metadata:
       designated list.      
 spec:
   validationFailureAction: audit
-  background: false
+  background: true
   rules:
-    - name: good-repos
-      match:
-        any:
-        - resources:
-            kinds:
-              - Pod
-      validate:
-        message: >-
-          All images in this Pod must come from an authorized repository.          
-        deny:
-          conditions:
-            all:
-            - key: "{{ images.[containers, initContainers, ephemeralContainers][].*.name[] }}"
-              operator: AnyNotIn
-              value:
-              - anushah
-              - kyverno
+  - name: validate-registries
+    match:
+      any:
+      - resources:
+          kinds:
+          - Pod
+    validate:
+      message: "Unknown image registry."
+      pattern:
+        spec:
+          =(ephemeralContainers):
+          - image: "docker.io/anushah*"
+          =(initContainers):
+          - image: "docker.io/anushah*"
+          containers:
+          - image: "docker.io/anushah*"

@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
       - name: python-app
-        image: anushah/sample-python-app:1.0
+        image: docker.io/anushah/sample-python-app:1.0
         ports:
         - containerPort: 80
